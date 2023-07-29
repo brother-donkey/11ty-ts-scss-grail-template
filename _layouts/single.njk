@@ -1,0 +1,26 @@
+---
+title: Jack of All Trades
+---
+<!doctype html>
+<html lang="en" class="html layout-single">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/dist-css/index.css">
+    </head>
+    <body class="body">
+        {% include 'header.njk' %}
+        {% include 'nav.njk' %}
+
+        <main class="main">
+            <div class="hello">
+                {{ content | safe }}
+            </div>
+        </main>
+        {% include 'aside.njk' %}
+        {% include 'footer.njk' %}
+
+        <script type="module" src="/dist-js/index.js" async><</script>
+    </body>
+</html>

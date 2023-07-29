@@ -1,0 +1,18 @@
+---
+title: Jack of All Trades | Posts
+layout: single.njk
+---
+
+<h1>
+    {{title}}
+</h1>
+
+<p>All posts</p>
+<ul>
+    {% for post in collections.posts %}
+        <li>
+            <a href="{{post.url}}">{{ post.data.title }}</a>
+            * <span>{{post.date.getFullYear()}}</span>
+        </li>
+    {% endfor %}
+</ul>

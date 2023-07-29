@@ -1,0 +1,62 @@
+{
+  "name": "jack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wireit",
+    "build:site": "wireit",
+    "build:css": "wireit",
+    "build:js": "wireit",
+    "start": "wireit",
+    "serve:site": "wireit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "latest",
+    "browserslist": "latest",
+    "esbuild": "latest",
+    "fs-extra": "latest",
+    "grail-css": "latest",
+    "lightningcss": "latest",
+    "sass": "latest",
+    "typescript": "latest",
+    "wireit": "latest"
+  },
+  "wireit": {
+    "start": {
+      "command": "npm run serve:site --watch"
+    },
+    "build": {
+      "command": "eleventy",
+      "dependencies": [
+        "build:css",
+        "build:js"
+      ]
+    },
+    "serve:site": {
+      "command": "eleventy --serve",
+      "dependencies": [
+        "build:css",
+        "build:js"
+      ]
+    },
+    "build:site": {
+      "command": "eleventy"
+    },
+    "build:css": {
+      "command": "node ./lib/build-scss.js \"./scss/index.scss\" \"./dist-css/index.css\"",
+      "files": [
+        "./scss/**/*.scss"
+      ],
+      "output": [
+        "./dist-css/index.css"
+      ]
+    },
+    "build:js": {
+      "command": "node ./lib/build-ts.js \"./dist-js/index.js\" \"./ts/index.ts\""
+    }
+  }
+}
