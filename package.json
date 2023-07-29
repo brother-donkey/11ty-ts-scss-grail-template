@@ -38,6 +38,7 @@
     },
     "serve:site": {
       "command": "eleventy --serve",
+      "service": true,
       "dependencies": [
         "build:css",
         "build:js"
